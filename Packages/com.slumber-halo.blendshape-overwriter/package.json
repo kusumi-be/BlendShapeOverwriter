@@ -1,5 +1,5 @@
 {
-  "name": "com.slumber-halo.com.slumber-halo.blendshape-overwriter",
+  "name": "com.slumber-halo.blendshape-overwriter",
   "displayName": "BlendShapeOverwriter",
   "version": "0.1.0",
   "description": "Tools for repairing lipsync shapekey by AnimationClip",
