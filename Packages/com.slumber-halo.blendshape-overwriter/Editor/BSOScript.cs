@@ -77,7 +77,7 @@ namespace SlumberHalo.BlensShapeOverwriter
             }
 
             // "shapeKeyNames"で指定されたシェイプキーを、アニメーションの値で上書き
-            Mesh modifiedMesh = CreateOverwritedMesh(targetSkinnedMesh, animShapeKeysList, shapeKeyNames);   // シェイプキーをアニメーションで上書きした結果を、メッシュとして書き出し
+            Mesh modifiedMesh = CreateOverwritedMesh(mesh, animShapeKeysList, shapeKeyNames);   // シェイプキーをアニメーションで上書きした結果を、メッシュとして書き出し
             targetSkinnedMesh.sharedMesh = modifiedMesh;                                        // 元のメッシュを上書き
             ObjectRegistry.RegisterReplacedObject(mesh, modifiedMesh);                          // メッシュを置換したことを記録
         }
@@ -143,11 +143,11 @@ namespace SlumberHalo.BlensShapeOverwriter
         /// <summary>
         /// シェイプキーにアニメーションを焼きこんだ状態のメッシュを生成する関数
         /// </summary>
-        /// <param name="skinnedMesh">元のメッシュ</param>
+        /// <param name="mesh">元のメッシュ</param>
         /// <param name="animShapeKeysList">各アニメーションが保持するシェイプキーの値のリスト</param>
         /// <param name="targetShapeKeyNames">シェイプキーの名前の配列　アニメーションを焼きこまれる対象となる</param>
         /// <returns>"シェイプキーにアニメーションを焼きこんだ"状態のメッシュ</returns>
-        private Mesh CreateOverwritedMesh(SkinnedMeshRenderer skinnedMesh, List<List<ShapeKey>> animShapeKeysList, string[] targetShapeKeyNames)
+        private Mesh CreateOverwritedMesh(Mesh mesh, List<List<ShapeKey>> animShapeKeysList, string[] targetShapeKeyNames)
         {
             // やること
             // 1. アニメーションのシェイプキーを読み込み　引数でやってる
@@ -156,7 +156,6 @@ namespace SlumberHalo.BlensShapeOverwriter
             // 4. 3のメッシュを、2のシェイプキーの結果として登録
             
             // シェイプキーによる、元のメッシュとの差分を記録する配列
-            var mesh = skinnedMesh.sharedMesh;
             var numVert = mesh.vertexCount;                     // 頂点数
             Vector3[] positionsSource = new Vector3[numVert];   // 位置の差分
             Vector3[] normalsSource = new Vector3[numVert];     // 法線の差分
@@ -190,14 +189,10 @@ namespace SlumberHalo.BlensShapeOverwriter
                     // アニメーションに含まれる各シェイプキーごとに、その移動量を加算していく
                     foreach (var animShapeKey in animShapeKeysList[pos]) {
                         mesh.GetBlendShapeFrameVertices(animShapeKey.index, 0, positionsSource, normalsSource, tangentsSource); // シェイプキーによる元のメッシュとの差分配列を取得
-                        var originValue = skinnedMesh.GetBlendShapeWeight(animShapeKey.index);                                  // そのシェイプキ―の元々の値を取得
-                        Debug.Log("indexは: " + animShapeKey.index + "で、名前は：" + animShapeKey.name + "、originValueは: " + originValue);
-
-                        // 頂点の分だけ繰り返す
                         for (int k = 0; k < numVert; k++) {
-                            positionsResult[k] += positionsSource[k] * (animShapeKey.value - originValue) / 100;    // 位置の差分を記録
-                            normalsResult[k]   += normalsSource[k]   * (animShapeKey.value - originValue) / 100;    // 法線の差分を記録
-                            tangentsResult[k]  += tangentsSource[k]  * (animShapeKey.value - originValue) / 100;    // 接線の差分を記録
+                            positionsResult[k] += positionsSource[k] * animShapeKey.value / 100;    // 位置の差分を記録
+                            normalsResult[k]   += normalsSource[k]   * animShapeKey.value / 100;    // 法線の差分を記録
+                            tangentsResult[k]  += tangentsSource[k]  * animShapeKey.value / 100;    // 接線の差分を記録
                         }
                     }
 
