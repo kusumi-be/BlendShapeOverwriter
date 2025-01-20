@@ -1,0 +1,16 @@
+{
+  "name" : "com.slumber-halo.blendshape-overwriter",
+  "displayName" : "BlendShape Overwriter",
+  "version" : "1.0.0",
+  "author": {
+    "name": "kusumi bell",
+    "url": "https://x.com/kusumi_bell"
+  },
+  "unity" : "2022.3",
+  "description" : "Tools for repairing lipsync shapekey by AnimationClip",
+  "vpmDependencies" : {
+    "com.vrchat.avatars" : ">=3.7.0",
+    "nadena.dev.ndmf" : ">=1.6.0"
+  },
+  "url" : "https://packages.vrchat.com/com.vrchat.avatars-3.1.0.zip"
+}
