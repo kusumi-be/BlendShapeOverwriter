@@ -1,8 +1,7 @@
-# VPM Package Template
+# BSO BlendShape Overwriter
 
-Starter for making Packages, including automation for building and publishing them.
-
-Once you're all set up, you'll be able to push changes to this repository and have .zip and .unitypackage versions automatically generated, and a listing made which works in the VPM for delivering updates for this package. If you want to make a listing with a variety of packages, check out our [template-package-listing](https://github.com/hoshinolabs-vrchat/template-package-listing) repo.
+VRChat用のUnityアドオンです。  
+口の形やサイズの改変により発生するリップシンク用シェイプキーの破綻を、アニメーションにてシェイプキーを上書きすることにより修正するためのアドオンです。
 
 ## ▶ Getting Started
 
