@@ -191,7 +191,6 @@ namespace SlumberHalo.BlensShapeOverwriter
                     foreach (var animShapeKey in animShapeKeysList[pos]) {
                         mesh.GetBlendShapeFrameVertices(animShapeKey.index, 0, positionsSource, normalsSource, tangentsSource); // シェイプキーによる元のメッシュとの差分配列を取得
                         var originValue = skinnedMesh.GetBlendShapeWeight(animShapeKey.index);                                  // そのシェイプキ―の元々の値を取得
-                        Debug.Log("indexは: " + animShapeKey.index + "で、名前は：" + animShapeKey.name + "、originValueは: " + originValue);
 
                         // 頂点の分だけ繰り返す
                         for (int k = 0; k < numVert; k++) {
