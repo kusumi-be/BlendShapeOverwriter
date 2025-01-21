@@ -109,7 +109,7 @@ namespace SlumberHalo.BlensShapeOverwriter
 
             // アニメーションが登録されていないなら、空の結果を返す
             if (animClip == null) {
-                return shapeKeys;
+                return null;
             }
 
             // アニメーションを取得
@@ -179,7 +179,7 @@ namespace SlumberHalo.BlensShapeOverwriter
                 int pos = Array.IndexOf(targetShapeKeyNames, name); // targetShapeKeyNamesの中にnameが存在するなら、その位置を、存在しないなら-1を返す
 
                 // シェイプキーが上書き対象の場合
-                if (pos > -1) {
+                if (pos > -1 && animShapeKeysList[pos] != null) {
                     // アニメーションをシェイプキーに変換した結果を保存する配列の初期化
                     for (int k = 0; k < numVert; k++) {
                         positionsResult[k] = Vector3.zero;
