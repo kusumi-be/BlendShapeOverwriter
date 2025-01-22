@@ -42,15 +42,20 @@ namespace SlumberHalo.BlensShapeOverwriter
                 .Run("指定のシェイプキーを、指定のアニメーションの値で置換します", ctx => {
 
                     // Editorでアタッチする側のコンポーネントを取得
-                    var component = ctx.AvatarRootObject.GetComponentInChildren<OverwriteBlendShape>();
+                    var components = ctx.AvatarRootObject.GetComponentsInChildren<OverwriteBlendShape>();
 
-                    // コンポーネントが取得できたなら
-                    if (component != null)
-                    {
-                        // シェイプキーをアニメーションで上書き
-                        OverwriteBlendShapesFromAnims(component.anims, component.shapeKeyNames, component.GetComponent<SkinnedMeshRenderer>());
+                    // BSOコンポーネントの数だけ繰り返す
+                    // 同じメッシュに複数個のBSOコンポーネントがついていた場合の処理に、最適化の余地あり
+                    foreach (var component in components) {
+                        // コンポーネントが取得できたなら
+                        if (component != null)
+                        {
+                            // シェイプキーをアニメーションで上書き
+                            OverwriteBlendShapesFromAnims(component.anims, component.shapeKeyNames, component.GetComponent<SkinnedMeshRenderer>());
+
+                            UnityEngine.Object.DestroyImmediate(component); // 処理が終わったため、コンポーネントを削除
+                        }
                     }
-                    UnityEngine.Object.DestroyImmediate(component); // 処理が終わったため、コンポーネントを削除
                 });
         }
 
