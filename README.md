@@ -5,6 +5,4 @@ VRChat用のUnityアドオンです。
 
 詳細なドキュメントは[こちら](https://kusumi-be.github.io/)
 
-![BSO サムネ](https://github.com/user-attachments/assets/1e0ac355-34a8-4189-82a0-e1d19677c537)
-
-
+![BSO_thumbnail2](https://github.com/user-attachments/assets/167b2f11-1ecd-47b6-8b0b-e4b0a7861d28)
