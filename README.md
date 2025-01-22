@@ -9,7 +9,7 @@ VRChat用のUnityアドオンです。
 ![BSO_thumbnail2](https://github.com/user-attachments/assets/167b2f11-1ecd-47b6-8b0b-e4b0a7861d28)
 
 ## ライセンス
-Apache License 2.0で運用しています。  
+Apache-2.0 licenseで運用しています。  
 そのため、商用利用や再配布なども可能です。
 
 ## その他
