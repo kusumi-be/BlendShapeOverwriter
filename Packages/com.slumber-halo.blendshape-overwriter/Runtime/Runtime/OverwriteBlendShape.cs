@@ -17,7 +17,6 @@ using VRC.SDKBase;
 namespace SlumberHalo.BlensShapeOverwriter{
     [RequireComponent(typeof(SkinnedMeshRenderer))]                         // skinned mesh rendererがあるかの確認
     [AddComponentMenu("BlensShape Overwriter/BSO Overwrite BlendShape")]    // AddComponentでどこに表示されるかを指定
-    [DisallowMultipleComponent]                                             // 一つのメッシュに2つ以上つけることを禁止する（予期せぬエラーを避けるため）
 
     public class OverwriteBlendShape : MonoBehaviour, IEditorOnly
     {
