@@ -10,7 +10,7 @@ VRChat用のUnityアドオンです。
 
 ## ライセンス
 Apache-2.0 licenseとMIT Licenseのデュアルライセンスで運用しています。  
-扱いやすいLICENSEをご自由に選んで、利用してください。
+用途に合わせて、扱いやすいライセンスを選択してください。
 
 ## その他
 シェイプキ―適応部分の仕組みを、kb10uyさんの[kb10uy's Various Tools](https://github.com/kb10uy/kb10uy-zatools)に含まれる、[Ad-Hoc BlendShape Mix](https://zatools.kb10uy.dev/ndmf-plugin/adhoc-blendshape-mix/)を参考にして制作させていただいております。
