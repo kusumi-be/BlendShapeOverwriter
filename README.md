@@ -5,7 +5,7 @@ VRChat用のUnityアドオンです。
 
 詳細なドキュメントは[こちら](https://kusumi-be.github.io/)
 
-シェイプキ―適応部分の仕組みを、kb10uyさんの[kb10uy's Various Tools](https://github.com/kb10uy/kb10uy-zatools)を参考にして、制作させていただいております。
+シェイプキ―適応部分の仕組みを、kb10uyさんの[kb10uy's Various Tools](https://github.com/kb10uy/kb10uy-zatools)に含まれる、[Ad-Hoc BlendShape Mix](https://zatools.kb10uy.dev/ndmf-plugin/adhoc-blendshape-mix/)を参考にして制作させていただいております。
 
 
 
